@@ -1,0 +1,17 @@
+body{
+	text-align: center;
+}
+table{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+td{
+    border: 1px solid black; 
+}
+main{
+        text-align: center;
+}
+input{
+	text-align: center;
+}
