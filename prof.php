@@ -13,7 +13,7 @@
     <nav>
 		<a href="index.php">Retour acceuil</a>
 		<a href="grille.php"><input type="button" value="Remplir une grille"/></a>
-		<a href="grille.php"><input type="button" value="Modifier des grilles"/></a>
+		<a href="modif.php"><input type="button" value="Modifier des grilles"/></a>
 		<a href="classement.php"><input type="button" value="Voir le classement"/></a>
     </nav>
     <br>

@@ -9,7 +9,7 @@
     <br>
     <main>
         <section class="login">
-            <form action="home.php" method="post"
+            <form action="home.php" method="post">
             <div>
                 <span>Identifiant</span>
                 <br>

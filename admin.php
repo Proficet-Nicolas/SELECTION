@@ -4,7 +4,7 @@ try
 
 {
  // se connecter à mysql
-    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8', 'root', 'root'); 
+    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8;port=3305', 'phpmyadmin', 'student'); 
 
 }
 
@@ -35,32 +35,41 @@ $comptes = $comptesStatement->fetchAll();
         <section>
             <table>
                 <tr>
+                    <td>id_comptes</td>
                     <td>Type de compte</td>
                     <td>Identifiant</td>
                     <td>Mot de passe</td>
+                    <td>code_comptes</td>
+                    <td>Modifier</td>
+                    <td>Supprimer</td>
                 </tr>
                 <tr>
-                    <td><?php
-                    foreach ($comptes as $compte) {
-                    ?>
+				<?php
+                    foreach ($comptes as $compte) :
+                    ?><tr>
+                    <td>
+                    <p><?php echo $compte['id_comptes']; ?></p>
+                     </td>
+                    <td>
                     <p><?php echo $compte['types_de_comptes']; ?></p>
-                    <?php
-                    }
-                    ?></td>
-                    <td><?php
-                    foreach ($comptes as $compte) {
-                    ?>
+                     </td>
+                    <td>
                     <p><?php echo $compte['login']; ?></p>
-                    <?php
-                    }
-                    ?></td>
-                    <td><?php
-                    foreach ($comptes as $compte) {
-                    ?>
+                     </td>
+                    <td>
                     <p><?php echo $compte['password']; ?></p>
-                    <?php
-                    }
-                    ?></td>
+                     </td>
+                     <td>
+                    <p><?php echo $compte['code_comptes']; ?></p>
+                     </td>
+                    <td>
+					<a href="modif_compte.php?id=<?php echo($grille['id_grille']); ?>">Modifier</a>
+                    </td>
+                    <td>
+					<a href="delete_compte.php?id=<?php echo($grille['id_grille']); ?>">Supprimer</a>
+                    </td>   
+                    </tr>
+					<?php endforeach; ?> 
                 </tr>
                </td>
                 </tr>

@@ -1,16 +1,10 @@
 <?php include ("header.html")?>
-	<h2>Espace prof</h2>
-    <nav>
-		<a href="index.php">Retour acceuil</a>
-		<a href="grille.php"><input type="button" value="Remplir une grille"/></a>
-		<a href="grille.php"><input type="button" value="Modifier des grilles"/></a>
-		<a href="classement.php"><input type="button" value="Voir le classement"/></a>
-    </nav>
-    <br>
-    <main>
+
+
+<main>
 		<h3>Remplir une grille</h3>
         <section>
-		<form method="post" action="grille_envoi.php">
+		<form method="post" action="modif_grilleupdate.php">
 				<div> 
 					<span>Numéro de candidat :</span>
 					<input type="text" name="numero_candidat" id="numero_candidat">	
@@ -138,16 +132,8 @@
 					<input type="text" name="note_jury">
 				</div>
 				<br>
-				<br>
-				<div>
-					<span>Code de la grille :</span>
-					<br>
-					<input type="text" name="code_grille" value="<?php echo(random_int(0, 100000));?>">
-				</div>
-				<br>
 				<input type="submit" value="valider">				
 
 			</form>
         </section>
     </main>
-<?php include ("footer.html")?>

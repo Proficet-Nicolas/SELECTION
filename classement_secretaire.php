@@ -4,7 +4,7 @@ try
 
 {
  // se connecter à mysql
-    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8', 'root', 'root'); 
+    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8;port=3305', 'phpmyadmin', 'student'); 
 
 }
 

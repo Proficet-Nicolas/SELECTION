@@ -14,13 +14,12 @@ $avis_proviseur = isset($_POST['avis_proviseur']) ?  $_POST['avis_proviseur'] : 
 $lettre_motivation = isset($_POST['lettre_motivation']) ?  $_POST['lettre_motivation'] : "";
 $remarques = isset($_POST['remarques']) ?  $_POST['remarques'] : "";
 $note_jury = isset($_POST['note_jury']) ?  $_POST['note_jury'] : "";
-$code_grille = isset($_POST['code_grille']) ?  $_POST['code_grille'] : "";
 
 try
 
 {
  // se connecter à mysql
-    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8;port=3305', 'phpmyadmin', 'student'); 
+    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8;port=3306', 'root', 'root'); 
 
 }
 
@@ -33,9 +32,9 @@ catch (Exception $e)
 };
 
  // Requête mysql pour insérer des données
- $sql = "INSERT INTO `grille`(`numero_candidat`, `nom`, `prenom`, `serie`, `travail_serieux`,`absence`, `comportement`, `etude_sup`, `avis_pp`, `avis_proviseur`, `lettre_motivation`, `remarques`, `note_jury`,`code_grille`) VALUES (:numero_candidat,:nom,:prenom,:serie,:travail_serieux,:absence,:comportement,:etude_sup,:avis_pp,:avis_proviseur,:lettre_motivation,:remarques,:note_jury,:code_grille)";
+ $sql = "UPDATE `grille`(`numero_candidat`, `nom`, `prenom`, `serie`, `travail_serieux`, `absence`, `comportement`, `etude_sup`, `avis_pp`, `avis_proviseur`, `lettre_motivation`, `remarques`, `note_jury`) VALUES (:numero_candidat,:nom,:prenom,:serie,:travail_serieux,:absence,:comportement,:etude_sup,:avis_pp,:avis_proviseur,:lettre_motivation,:remarques,:note_jury)";
  $res = $db->prepare($sql);
- $exec = $res->execute(array(":numero_candidat"=>$numero_candidat,":nom"=>$nom,":prenom"=>$prenom,":serie"=>$serie,":travail_serieux"=>$travail_serieux,":absence"=>$absence,":comportement"=>$comportement,":etude_sup"=>$etude_sup,":avis_pp"=>$avis_pp,":avis_proviseur"=>$avis_proviseur,":lettre_motivation"=>$lettre_motivation,":remarques"=>$remarques,":note_jury"=>$note_jury,":code_grille"=>$code_grille));
+ $exec = $res->execute(array(":numero_candidat"=>$numero_candidat,":nom"=>$nom,":prenom"=>$prenom,":serie"=>$serie,":travail_serieux"=>$travail_serieux,":absence"=>$absence,":comportement"=>$comportement,":etude_sup"=>$etude_sup,":avis_pp"=>$avis_pp,":avis_proviseur"=>$avis_proviseur,":lettre_motivation"=>$lettre_motivation,":remarques"=>$remarques,":note_jury"=>$note_jury));
  // vérifier si la requête d'insertion a réussi
  if($exec){ ; 
    echo 'Données insérées';
@@ -43,5 +42,3 @@ catch (Exception $e)
    echo "Échec de l'opération d'insertion";
  }
 ?> 
-<a href="prof.php">Retour</a>
-  

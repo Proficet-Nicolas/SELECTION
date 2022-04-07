@@ -4,7 +4,7 @@ try
 
 {
  // se connecter à mysql
-    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8', 'root', 'root'); 
+    $db = new PDO('mysql:host=localhost;dbname=selection;charset=utf8;port=3305', 'phpmyadmin', 'student'); 
 
 }
 
@@ -16,7 +16,7 @@ catch (Exception $e)
  
 }
 // On récupère tout le contenu de la table comptes
-$sqlQuery = 'SELECT * FROM grilles';
+$sqlQuery = 'SELECT * FROM grille';
 $grillesStatement = $db->prepare($sqlQuery);
 $grillesStatement->execute();
 $grilles = $grillesStatement->fetchAll();
